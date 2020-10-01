@@ -7,6 +7,10 @@ import java.util.List;
 
 @Controller
 public class DJController {
-    List<String> songs = new ArrayList<String>();
-    String song1= "Song1";
+    public void addSongs() {
+        List<String> songs = new ArrayList<String>();
+        songs.add("Song1");
+        songs.add("Song2");
+        songs.add("Song3");
+    }
 }
