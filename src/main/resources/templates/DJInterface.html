@@ -1,0 +1,39 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<!-- Required meta tags -->
+<link rel="stylesheet" href="DJInterface.css">
+    <head>
+        <title> Club IoT </title>
+    </head>
+    
+    <body>
+        <h1>Club IoT</h1>
+        
+        <div id="playingSong">
+        <p>playing song: </p>
+        </div>
+        
+        <div id="voting">
+        <p>Voting</p>
+        <img id="votingPicUp" src="Images/like.png" alt="like">
+        <img id="votingPicDown" src="Images/dislike.png" alt="dislike">
+        <p> number of votes </p> <br> <br>
+        </div>
+        
+        <form id="songForm">
+            <select id="songs" name="songs" multiple>
+            <option value="volvo">Song 1</option>
+            <option value="saab">Song 2</option>
+            <option value="fiat">Song 3</option>
+            <option value="audi">Song 4</option>
+            </select><br><br>
+            <button id="playButton" type="submit">Selected Song</button>
+        </form>
+    </body>
+    
+    
+    <footer>
+        <!--<div class="container mt-5">-->
+        <p class="mt-5" align="center" >© 2020 Copyright: I-Distributed AI </p>
+        <!--</div>-->
+    </footer>
+</html>
