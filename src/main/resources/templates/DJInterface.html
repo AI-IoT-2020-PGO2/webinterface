@@ -1,6 +1,12 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
-<link rel="stylesheet" href="../static/DJInterface.css">
     <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <!-- include css in the header -->
+        <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" type="text/css" th:href="@{DJInterface.css}"/>
         <title> Club IoT </title>
     </head>
     
@@ -10,22 +16,24 @@
         <div id="playingSong">
         <p>playing song: </p>
         </div>
-        
+
         <div id="voting">
         <p>Voting</p>
         <img id="votingPicUp" src="Images/like.png" alt="like">
         <img id="votingPicDown" src="Images/dislike.png" alt="dislike">
         <p> number of votes </p> <br> <br>
         </div>
-        
-        <form id="songForm">
-            <select id="songs" name="songs" multiple>
-            <option value="volvo">Song 1</option>
-            <option value="saab">Song 2</option>
-            <option value="fiat">Song 3</option>
-            <option value="audi">Song 4</option>
-            </select><br><br>
+
+        <form id="songForm" th:action="@{/home/submit}" th:object="${selectedSong}">
+            <select multiple>
+                <option th:each="songs : ${songs}"
+                        th:value="${songs}"
+                        th:text="${songs}"
+                >Options</option>
+            </select>
+            <br><br>
             <button id="playButton" type="submit">Selected Song</button>
+            <br><br>
         </form>
     </body>
     

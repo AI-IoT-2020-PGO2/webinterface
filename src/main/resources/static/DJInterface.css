@@ -12,14 +12,11 @@ h1 {
 
 #songForm {
     text-align: center;
+    width:100%;
 }
 
 footer{
     color: white;
-}
-
-#songForm .option {
-    width: 300px;
 }
 
 #songs{
