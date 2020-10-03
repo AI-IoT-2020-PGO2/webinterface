@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
     <head>
         <meta charset="utf-8"/>
@@ -24,15 +25,15 @@
         <p> number of votes </p> <br> <br>
         </div>
 
-        <form id="songForm" th:action="@{/home/submit}" th:object="${selectedSong}">
+        <form id="songForm" th:action="@{/home/submit}" th:object="${selectedSong}" method="post">
             <select multiple>
                 <option th:each="songs : ${songs}"
                         th:value="${songs}"
                         th:text="${songs}"
-                >Options</option>
+                ></option>
             </select>
             <br><br>
-            <button id="playButton" type="submit">Selected Song</button>
+            <button id="playButton" type="submit" th:value="selectedSong">Selected Song</button>
             <br><br>
         </form>
     </body>
