@@ -3,6 +3,7 @@ html{
 }
 
 body{
+    text-align: center;
     color: white;
 }
 h1 {
@@ -11,16 +12,15 @@ h1 {
 }
 
 #songForm {
+    width: 100%;
+}
+
+#voting {
     text-align: center;
-    width:100%;
 }
 
 footer{
     color: white;
-}
-
-#songs{
-    width: 100%;
 }
 
 #votingPicUp{

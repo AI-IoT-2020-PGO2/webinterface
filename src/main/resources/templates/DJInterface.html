@@ -25,8 +25,8 @@
         <p> number of votes </p> <br> <br>
         </div>
 
-        <form id="songForm" th:action="@{/home/submit}" th:object="${selectedSong}" method="post">
-            <select multiple>
+        <form id="songForm" th:action="@{/home/submit}">
+            <select th:name="selectedSong" multiple>
                 <option th:each="songs : ${songs}"
                         th:value="${songs}"
                         th:text="${songs}"
