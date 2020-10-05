@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:length="http://www.w3.org/1999/xhtml">
     <head>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -15,25 +16,26 @@
         <h1>Club IoT</h1>
         
         <div id="playingSong">
-        <p>playing song: </p>
+        <p>playing song: <span style="color:red" th:text="${currentSong != null } ? ${currentSong.getSong_name()}"></span></p>
         </div>
 
         <div id="voting">
-        <p>Voting</p>
-        <img id="votingPicUp" src="Images/like.png" alt="like">
-        <img id="votingPicDown" src="Images/dislike.png" alt="dislike">
-        <p> number of votes </p> <br> <br>
+            <img id="votingPicUp" src="Images/like.png" alt="like">
+            <img id="votingPicDown" src="Images/dislike.png" alt="dislike">
+            <p><span th:text="${votesPro}"></span> - <span th:text="${votesContra}"></span></p>
+            <p> Total number of votes: <span th:text="${totalVotes}"></span> </p>
+            <p> Most active User: <span th:text="${activeUserID}"></span> with <span th:text="${activeUserVotes}"></span> votes </p>
         </div>
 
         <form id="songForm" th:action="@{/home/submit}">
-            <select th:name="selectedSong" multiple>
+            <select id="songSelect" th:name="selectedSong" multiple>
                 <option th:each="songs : ${songs}"
-                        th:value="${songs}"
-                        th:text="${songs}"
+                        th:value="${songs.getId()}"
+                        th:text="${songs.getSong_name()}"
                 ></option>
             </select>
             <br><br>
-            <button id="playButton" type="submit" th:value="selectedSong">Selected Song</button>
+            <button id="playButton" type="submit" th:value="selectedSong">Select Song</button>
             <br><br>
         </form>
     </body>
