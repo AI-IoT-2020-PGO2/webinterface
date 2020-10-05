@@ -8,6 +8,7 @@ import org.apache.logging.log4j.util.PropertySource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -89,6 +90,13 @@ public class WebController {
     @RequestMapping(value="/home/submit")
     public String submit(@ModelAttribute("selectedSong") Song selectedSong, final ModelMap model){
         dataService.setCurrentSong(selectedSong);
+        return "redirect:/home";
+    }
+
+    @RequestMapping(value="/home/refreshVotes")
+    @Scheduled(cron = "*/10 * * * * * " )
+    public String refreshVotes(){
+        System.out.println("Refreshed");
         return "redirect:/home";
     }
 

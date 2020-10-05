@@ -27,6 +27,11 @@
             <p> Most active User: <span th:text="${activeUserID}"></span> with <span th:text="${activeUserVotes}"></span> votes </p>
         </div>
 
+        <div>
+            <a  th:href="@{/home/refreshVotes}"> <button> Refresh Votes </button> </a> <br> <br>
+        </div>
+
+
         <form id="songForm" th:action="@{/home/submit}">
             <select id="songSelect" th:name="selectedSong" multiple>
                 <option th:each="songs : ${songs}"
